@@ -1,0 +1,37 @@
+<button class="btn btn-primary mt-3" ng-click="finish()">Nộp Bài</button>
+<div class="title d-flex align-items-center justify-content-between mt-3">
+    <h3 class="m-0 text-warning">{{tenMH}}</h3>
+    <p class="m-0 text-info fw-bold">Thời gian còn lại: <span
+            class="badge bg-danger p-2">{{(countDown-countDown%60)/60}}:{{countDown%60}}
+        </span></p>
+</div>
+<!-- <div class="progress mt-3">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
+        aria-valuemin="0" aria-valuemax="100" style="width:{{countDown/900*100}}%;"></div>
+</div> -->
+<div class="card mt-3" ng-repeat="ch in listQuestions | limitTo:pageSize:start">
+    <div class="card-header bg-dark text-light">
+        {{ch.Text}} - {{ch.AnswerId}}
+    </div>
+    <div class="card-body">
+        <p class="card-text" ng-repeat="pa in ch.Answers">
+            <input type="radio" name="pa" id="{{pa.Id}}" value="{{pa.Id}}" class="form-check-input me-2"
+                ng-click="checkAnswer(stt, ch.Id, ch.AnswerId, pa.Id, ch.Marks)"
+                ng-checked="{{listAnswersOfUser[stt-1].answerId == pa.Id}}"> {{pa.Id}}
+            <label class="form-label" for="{{pa.Id}}">{{pa.Text}}</label>
+        </p>
+    </div>
+    <div class="card-footer text-muted d-flex align-items-center justify-content-end">
+        <p class="m-0 text-danger fw-bold">Số Câu Hỏi: <span
+                class="badge bg-primary">{{stt}}/{{listQuestions.length}}</span>
+        </p>
+    </div>
+</div>
+<nav class="mt-1">
+    <ul class="pagination d-flex justify-content-between">
+        <li class="page-item"><a class="page-link" href="javascript:void(0)" ng-click="prev()"><i
+                    class="fas fa-backward"></i> Prev</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)" ng-click="next()">Next <i
+                    class="fas fa-forward"></i></a></li>
+    </ul>
+</nav>

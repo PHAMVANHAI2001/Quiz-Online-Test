@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="font-awesome/css/all.css">
+    <title>PS14680 - Phạm Văn Hải</title>
+</head>
+
+<body ng-app="myApp" ng-controller="homeCtrl">
+    <header class="d-flex justify-content-between align-items-center">
+        <div class="header-title ms-5">
+            <h1 class="text-uppercase text-white">Online Training</h1>
+        </div>
+        <div class="logo me-5">
+            <img src="images/logofptwhite.png" alt="" width="300px">
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light pe-2 ps-5">
+        <a class="navbar-brand" href="#!home"><img src="images/logo.png" alt="" height="50"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#!/home">Trang Chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/about">Giới Thiệu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/contact">Liên Hệ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/feedback">Góp Ý</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/QandA">Hỏi Đáp</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown" ng-show="currentUser==null">
+                    <a class="nav-link dropdown-toggle text-primary" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                        Tài Khoản
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-light"
+                        aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#!/register">Đăng Ký</a></li>
+                        <li><a class="dropdown-item" href="#!/login">Đăng Nhập</a></li>
+                        <li><a class="dropdown-item" href="#!/forgotpass">Quên Mật Khẩu</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item nav-item-user dropdown" ng-hide="currentUser==null">
+                    <a class="nav-link dropdown-toggle text-primary" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                        Chào, {{currentUser.username}}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-light"
+                        aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#!home" ng-click="logOut()">Đăng Xuất</a></li>
+                        <li><a class="dropdown-item" href="#!changepass">Đổi Mật Khẩu</a></li>
+                        <li><a class="dropdown-item" href="#!editprofile">Cập Nhật Tài Khoản</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main class="container-sm" ng-view>
+
+    </main>
+    <footer class="container-fluid">
+        <div class="row">
+            <div class="footer-contact p-3 col-sm-12 d-flex justify-content-between align-items-center">
+                <img src="images/logo.png" alt="" style="width:200px">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link p-1" href="https://www.facebook.com/fpt.poly" target="_blank"><i
+                                class="fab fa-facebook" style="font-size: 32px;"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-1" href="https://caodang.fpt.edu.vn/" target="_blank"><i
+                                class="fab fa-google" style="font-size: 32px;"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-1" href="caodang@fpt.edu.vn" target="_blank"><i class="fas fa-envelope"
+                                style="font-size: 32px;"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+    <script src="https://code.angularjs.org/1.8.0/angular-route.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/changePass.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/forgotPass.js"></script>
+    <script src="js/editProfile.js"></script>
+    <script src="js/feedback.js"></script>
+    <script src="js/qanda.js"></script>
+    <script src="js/answer.js"></script>
+    <script src="js/detailsanswers.js"></script>
+</body>
+
+</html>

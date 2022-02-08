@@ -1,0 +1,12 @@
+<form class="w-25 m-auto my-5">
+  <div class="form-text">
+    <h3 class="text-primary">Hỗ trợ mật khẩu</h3>
+    <p>Vui lòng nhập địa chỉ email của bạn vào bên dưới và chúng tôi sẽ gửi cho bạn mật khẩu mới.</p>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input type="email" class="form-control" ng-model="receiver">
+    <div id="emailHelp" class="form-text">Địa chỉ email bạn dùng để đăng ký tài khoản | Online Training.</div>
+  </div>
+  <button type="submit" class="btn btn-primary" ng-click="forgotPassword(receiver)">Đặt lại mật khẩu</button>
+</form>

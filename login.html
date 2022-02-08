@@ -1,0 +1,37 @@
+<div class="card w-50 m-auto my-5">
+    <div class="card-header text-center h3 bg-primary text-light text-uppercase">
+        Đăng Nhập Tài Khoản
+    </div>
+    <div class="card-body">
+        <form name="frmLogin" id="frmLogin">
+            <div class="mb-3">
+                <label class="form-label">Tên Đăng Nhập</label>
+                <input type="text" name="txtUsername" class="form-control" ng-model="usernameLG" required>
+                <div class="alert alert-danger p-1 mt-1" role="alert"
+                    ng-show="frmLogin.txtUsername.$invalid && (frmLogin.txtUsername.$touched || frmLogin.txtUsername.$dirty)">
+                    Tên Đăng Nhập Không Được Bỏ Trống
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Mật Khẩu</label>
+                <input type="password" name="txtPassword" class="form-control" ng-model="passwordLG" required>
+                <div class="alert alert-danger p-1 mt-1" role="alert"
+                    ng-show="frmLogin.txtPassword.$error.required && (frmLogin.txtPassword.$touched || frmLogin.txtPassword.$dirty)">
+                    Vui lòng nhập mật khẩu
+                </div>
+            </div>
+            <!-- <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Nhớ mật khẩu</label>
+            </div> -->
+            <button type="submit" class="btn btn-primary w-100" ng-click="mainLogin()">Đăng Nhập</button>
+            <div class="login-gg mt-3 text-center">
+                <p class="social-heading"><span>Hoặc tiếp tục bằng</span></p>
+                <button class="btn d-block m-auto mt-4 shadow rounded-pill" style="width:70px; height:70px;"
+                    ng-click="ggLogin()">
+                    <img src="images/icon-google.png" alt="" width="40" height="40">
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

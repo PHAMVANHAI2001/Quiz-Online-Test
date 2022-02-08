@@ -1,0 +1,33 @@
+<div class="card w-50 m-auto my-5">
+    <div class="card-header text-center h3 bg-primary text-light text-uppercase">
+        Góp ý cho chúng tôi
+    </div>
+    <div class="card-body">
+        <form name="frmFeedback">
+            <div class="mb-3">
+                <label class="form-label">Tiêu Đề</label>
+                <input type="text" class="form-control" name="txtTitle" ng-model="title" required>
+                <div class="alert alert-danger p-1 mt-1" role="alert"
+                    ng-show="frmFeedback.txtTitle.$invalid && (frmFeedback.txtTitle.$touched || frmFeedback.txtTitle.$dirty)">
+                    Tiêu Đề Không Được Bỏ Trống
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Nội dung góp ý</label>
+                <textarea class="w-100" name="content" id="ContentQuestions" rows="6"></textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" name="txtEmail" ng-model="email" required>
+                <div class="alert alert-danger p-1 mt-1" role="alert"
+                    ng-show="frmFeedback.txtEmail.$error.required && (frmFeedback.txtEmail.$touched || frmFeedback.txtEmail.$dirty)">
+                    Email Không Được Bỏ Trống
+                </div>
+                <div class="alert alert-danger p-1 mt-1" role="alert" ng-show="frmFeedback.txtEmail.$error.email">
+                    Email Không Hợp Lệ
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Gửi</button>
+        </form>
+    </div>
+</div>

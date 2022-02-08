@@ -1,0 +1,43 @@
+<!-- <div class="row mt-3"> -->
+<article class="container">
+  <div class="row">
+    <div class="col-sm-6 p-2" ng-repeat="monhoc in cacmonhoc | limitTo:pageSize:start" style="cursor: pointer;">
+      <div class="card text-center p-0 h-100">
+        <div class="card-body position-relative w-100 p-0" style="height: 200px;">
+          <div class="image position-absolute w-100" style="height: 100%;">
+            <img src="images/logos/{{monhoc.Logo}}" alt="">
+          </div>
+          <div
+            class="batdauthi w-100 h-100 position-absolute d-flex justify-content-center align-items-center flex-column"
+            ng-hide="currentUser==null">
+            <p>Thời Gian Thi 15 Phút</p>
+            <div class="btn-group">
+              <a href="#!tracnghiem?idMH={{monhoc.Id}}&tenMH={{monhoc.Name | uppercase}}" class="btn btn-primary">Bắt
+                đầu thi</a>
+              <a href="#!answer?idMH={{monhoc.Id}}&tenMH={{monhoc.Name | uppercase}}" class="btn btn-danger">Xem Kết Quả</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer fw-bold">
+          {{monhoc.Name}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="d-flex">
+    <ul class="pagination mx-auto">
+      <li class="page-item"><a class="page-link" href="javascript:void(0)" ng-click="first()"><i
+            class="fas fa-step-backward"></i></a></li>
+      <li class="page-item"><a class="page-link" href="javascript:void(0)" ng-click="prev()"><i
+            class="fas fa-backward"></i></a></li>
+      <li class="page-item"><a class="page-link" href="javascript:void(0)" ng-click="next()"><i
+            class="fas fa-forward"></i></a></li>
+      <li class="page-item"><a class="page-link" href="javascript:void(0)" ng-click="last()"><i
+            class="fas fa-step-forward"></i></a></li>
+    </ul>
+  </nav>
+</article>
+<!-- <aside class="col-sm-3">
+    <div class="listmonhoc" ng-include="'cacmonhoc.html'"> </div>
+  </aside> -->
+<!-- </div> -->

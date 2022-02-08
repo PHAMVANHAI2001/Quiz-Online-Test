@@ -1,0 +1,22 @@
+<div class="card w-50 m-auto my-5">
+    <div class="card-header text-center h3 bg-primary text-light text-uppercase">
+        thay đổi mật khẩu
+    </div>
+    <div class="card-body">
+        <form name="frmChangePass" id="frmChangePass">
+            <div class="mb-3">
+                <label class="form-label">Mật Khẩu Cũ</label>
+                <input type="password" class="form-control" name="txtOldPass" ng-model="oldPass">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Mật Khẩu Mới</label>
+                <input type="password" class="form-control" name="txtNewPass" ng-model="newPass">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Xác Nhận Mật Khẩu Mới</label>
+                <input type="password" class="form-control" name="txtCfmNewPass" ng-model="cfmNewPass">
+            </div>
+            <button type="submit" class="btn btn-primary w-100" ng-click="changePass()">Thay đổi mật khẩu</button>
+        </form>
+    </div>
+</div>

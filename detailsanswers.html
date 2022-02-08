@@ -1,0 +1,11 @@
+<div class="card my-3" ng-repeat="ch in listQuestions">
+    <div class="card-header bg-dark text-light">
+        {{$index + 1}}. {{ch.Text}}
+    </div>
+    <div class="card-body" style="border-left:{{ch.AnswerId == ch.userAnswer ? '5px solid green' : '5px solid red'}}">
+        <p class="card-text" ng-repeat="pa in ch.Answers">
+            <input type="radio" class="form-check-input me-2" ng-checked="pa.Id == ch.userAnswer">
+            <label class="form-label">{{pa.Text}}</label>
+        </p>
+    </div>
+</div>
